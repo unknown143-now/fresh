@@ -1,0 +1,96 @@
+.nav{
+    padding: 0px 40px;
+    background: white;
+    min-height: 10vh;
+    transition: height 1s ease-in-out;
+    overflow: hidden;
+    height: 0;
+}
+.nav-menu{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.logo{
+    width: 150px;
+}
+.logo .img1{
+    width: 100%;
+}
+.toggle-icon{
+    width: 90%;
+    position: absolute;
+    top: 0%;
+    cursor: pointer;
+    display: none;
+}
+.toggle-icon .menu-icon{
+    display: flex;
+    justify-content: flex-end;
+    padding: 1.5rem 0;
+}
+.toggle-icon .menu-icon .drop-icon{
+    width: 1.6rem;
+}
+.collapse{
+    height: 20rem;
+}
+.nav-list{
+    padding: 20px 0;
+}
+.nav-list .list{
+    padding-left: 10px;
+    font-size: 19px;
+    color: #000;
+    text-decoration: none;
+    font-family: 'Lato', sans-serif;
+}
+.nav-list .list.active{
+    color: #2aba66;
+}
+.nav-list .list:hover{
+    color: #2aba66;
+}
+.nav-list .list .img{
+    width: 15px;
+}
+.nav-list .list.cash{
+    color: #2aba66;
+    font-family: 'Newsreader', serif;
+}
+
+
+
+@media screen and (max-width:1000px){
+    .nav-menu{
+        flex-direction: column;
+    }
+    .logo{
+        width: 200px;
+    }
+    .toggle-icon{
+        display: block;
+    }
+    .nav-row{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+    .list{
+        padding-bottom: 5px;
+    }
+}
+
+
+@media screen and (max-width:450px){
+    .logo{
+        width: 150px;
+    }
+    .nav{
+        padding: 0 10px;
+    }
+    .toggle-icon .menu-icon{
+        padding: 1.0rem 0;
+    }
+}

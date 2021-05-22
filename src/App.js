@@ -1,25 +1,125 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Switch, Redirect, useHistory} from 'react-router-dom';
+import Home from "./Pages/Home/Home";
+import Login from "./Pages/Login/Login";
+import Register from "./Pages/Register/Register";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+const ProtectedRoute = ({path, exact, auth, Comp, redirectUrl, ...props})=>{
+  if(auth){
+      return(
+          <Route
+              path = {path}
+              exact = {exact}
+              render = {(otherProps)=>(
+                  <Comp
+                      {...otherProps}
+                      {...props}
+                  />
+              )}
+          />
+      )
+  }
+  return(<Redirect to = {redirectUrl || '/'}/>)
 }
+
+function App (){
+    const [loggedIn, setLoggedIn] = useState(false);
+    const [adminLoggedIn, setAdminLoggedIn] = useState(false)
+    const [userObj, setUserObj] = useState()
+
+    const history = useHistory()
+
+    const logUserIn = (user)=>{
+        if(user.remember_me){
+            localStorage.setItem('userId', user.id)
+        }
+        setUserObj(user)
+        setLoggedIn(true)
+        history.push("/dashboard")
+    }
+
+    const logOut = ()=>{
+        localStorage.removeItem('userId')
+        setLoggedIn(false)
+        setUserObj("")
+        history.push("/login")
+    }
+
+    const logAdminIn = ()=>{
+        setAdminLoggedIn(true)
+    }
+
+    const logAdminOut = ()=>{
+        history.push('/admin')
+        setAdminLoggedIn(false)
+    }
+
+    return(
+        <Router>
+            <Switch>
+                <Route
+                    path = '/'
+                    exact
+                    render = {(props)=>(
+                        <Home
+                            {...props}
+                        />
+                    )}
+                />
+                <Route
+                    path = "/login"
+                    exact
+                    render = {(props)=>(
+                        <Login
+                            {...props}
+                            logUserIn = {logUserIn}
+                            logOut = {logOut}
+                        />
+                    )}
+                />
+                <Route
+                    path = '/register'
+                    exact
+                    render = {(props)=>(
+                        <Register
+                            {...props}
+                        />
+                    )}
+                />
+                {/* <ProtectedRoute
+                    path = '/dashboard'
+                    exact
+                    auth = {loggedIn}
+                    Comp = {Dashboard}
+                    redirectUrl = '/login'
+                    userDetails = {userObj}
+                    setUserDetails = {setUserObj}
+                    logOut = {logOut}
+                />
+                <Route
+                    path = '/admin'
+                    exact
+                    render = {(props)=>(
+                        <AdminLogin
+                            {...props}
+                            logAdminIn = {logAdminIn}
+                        />
+                    )}
+                />
+                <ProtectedRoute
+                    path = '/admin/dashboard'
+                    exact
+                    auth = {adminLoggedIn}
+                    Comp = {AdminDashboard}
+                    logOut = {logAdminOut}
+                />*/}
+                <Redirect to='/'></Redirect>
+            </Switch>
+        </Router>
+    ) 
+}
+
 
 export default App;

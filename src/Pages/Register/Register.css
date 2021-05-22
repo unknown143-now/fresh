@@ -1,0 +1,113 @@
+.login{
+    background: url('../../images/banner.jpg');
+    background-repeat: no-repeat;
+    display: flex;
+    padding: 60px 0;
+    justify-content: center;
+    background-size: cover;
+    font-family: 'Lato', sans-serif;
+}
+.login .overlay{
+    text-align: center;
+}
+.login .logo{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.login .logo .over{
+    width: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+.login .logo .img{
+    width: 100%;
+    height: 100%;
+}
+.login .form .input{
+    width: 400px;
+    border-radius: 35px;
+    font-size: 15px;
+    padding: 10px 40px;
+    border: none;
+    margin-bottom: 30px;
+    outline: none;
+}
+.login .form .button{
+    padding: 15px 40px;
+    border-radius: 35px;
+    border: none;
+    background: #D770AD;
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+.login .form .switch{
+    display: flex;
+    margin-top: 20px;
+    color: white;
+    font-weight: bold;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+.login .form .switch2{
+    display: flex;
+    justify-content: center;
+}
+.login .form .switch2 .box{
+    margin-right: 5px;
+    width: 20px;
+    margin-top: 3px;
+}
+.login .form .switch .side{
+    padding-left: 10px;
+    text-decoration: none;
+    color: #2aba66;
+}
+.login .form .switch2 .p-tag{
+    color: rgb(184, 183, 183);
+    padding-right: 10px;
+}
+.login .form .switch2 .a-tag{
+    color: #2aba66;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+@media screen and (max-width:1000px){
+    .nav-menu{
+        flex-direction: column;
+    }
+    .logo{
+        width: 200px;
+    }
+    .toggle-icon{
+        display: block;
+    }
+    .nav-row{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+    .list{
+        padding-bottom: 15px;
+    }
+}
+
+@media screen and (max-width:450px){
+    .logo{
+        width: 150px;
+    }
+    .nav{
+        padding: 0 10px;
+    }
+    .toggle-icon .menu-icon{
+        padding: 1.0rem 0;
+    }
+    .login .form .input{
+        width: 100%;
+    }
+}

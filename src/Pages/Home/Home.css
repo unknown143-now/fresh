@@ -1,0 +1,308 @@
+.banner{
+    background: url('../../images/banner.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    height: 90vh;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-attachment: fixed;
+}
+.banner .h3{
+    font-size: 20px;
+    color: #78f1aa;
+    padding-bottom: 30px;
+} 
+.banner .p{
+    font-size: 18px;
+    color: #D770AD;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #D770AD;
+}
+.banner .h1{
+    font-size: 80px;
+    text-shadow: 2px 4px #155d33;
+    padding-bottom: 20px;
+    font-family:'Times New Roman', Times, serif
+}
+.banner .btn{
+    font-size: 15px;
+    padding: 10px 20px;
+    margin-right: 50px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.banner .btn.one{
+    background: #D770AD;
+    color: white;
+    border: none;
+    border-radius: 3px;
+}
+.banner .btn.two{
+    background: #fff;
+    color: #D770AD;
+    border-radius: 3px;
+    border: none;
+}
+.banner .btn.one:hover{
+    color: #D770AD;
+    background: #fff;
+    border: 1px solid #D770AD;
+}
+.banner .btn.two:hover{
+    background: #D770AD;
+    color: #fff;
+    border: 1px solid #fff;
+}
+.second-section{
+    background:linear-gradient(180deg, #1933dfb4 0%, #bf0d0d8f 100%), url('../../images/bg.jpg');
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    align-content: center;
+    padding: 0 50px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.second-section .overlay{
+    color: white;
+}
+.second-section .overlay .h1{
+    font-size: 40px;
+    padding-bottom: 10px;
+}
+.second-section .overlay .line{
+    height: 7px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 70px;
+}
+.second-section .overlay .line .line2{
+    height: 100%;
+    background: #BF263C;
+    width: 100px;
+}
+.second-section .overlay .p{
+    font-size: 20px;
+}
+.third-section{
+    padding: 100px 50px;
+    text-align: center;
+}
+.third-section .h1{
+    font-size: 40px;
+    padding-bottom: 10px;
+}
+.third-section .line{
+    height: 7px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 70px;
+}
+.third-section .line .line2{
+    height: 100%;
+    background: #BF263C;
+    width: 100px;
+}
+.third-section .partner-img{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.third-section .partner-img .div{
+    width: 18%;
+}
+.third-section .partner-img .div .img{
+    width: 100%;
+}
+
+.fourth-section{
+    background-color: transparent;
+    background-image: linear-gradient(130deg, #113cfb5b 0%, #ff30646b 35%), url('../../images/bg2.jpg');
+    background-size:cover;
+    padding: 50px 50px;
+    text-align: center;
+    background-attachment: fixed;
+    background-position: center;
+}
+.fourth-section .overlay .h1{
+    font-size: 40px;
+    padding-bottom: 10px;
+}
+.fourth-section .overlay .line{
+    height: 7px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 70px;
+}
+.fourth-section .overlay .line .line2{
+    height: 100%;
+    background: #c4c1c1;
+    width: 100px;
+}
+
+.fourth-section .second-sub-div{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: left;
+    justify-content: space-between;
+}
+.fourth-section .second-sub-div .small-box{
+    width: 31%;
+    margin-bottom: 30px;
+}
+.fourth-section .second-sub-div .p1{
+    font-size: 19px;
+    color: #c4c1c1;
+    font-weight: bold;
+}
+.fourth-section .second-sub-div .span{
+    color: #c4c1c1;
+}
+.fourth-section .second-sub-div .h1{
+    font-size: 30px;
+}
+.fourth-section .second-sub-div .big-box{
+    width: 47%;
+}
+.fourth-section .second-sub-div .p2{
+    padding-left: 17px;
+}
+.footer{
+    text-align: center;
+    background: #000;
+    color: #fff;
+}
+.whatsapp{
+    background: #25D366;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 50%;
+    top: 80%;
+    position: fixed;
+    margin-left: 30px;
+}
+.whatsapp .img{
+    width: 30px;
+}
+.cryptolive-wrapper{
+    background-color: #1D2330; 
+    overflow: hidden; 
+    box-sizing: border-box;
+    border: 1px solid #282E3B; 
+    border-radius: 4px; 
+    text-align: right; 
+    line-height: 14px;
+    font-size: 12px; 
+    font-feature-settings: normal;
+    text-size-adjust: 100%; 
+    box-shadow: inset 0 -20px 0 0 #262B38;
+    padding: 1px;
+    padding: 0px; 
+    margin: 0px; 
+    width: 100%;
+}
+
+.cryptolive{
+    height: 40px;
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+}
+
+
+.vError{
+    font-size: 13px;
+    font-weight: normal;
+    margin: 0;
+    color: red;
+}
+
+@media screen and (max-width:850px){
+    .fourth-section .second-sub-div .small-box,.fourth-section .second-sub-div .big-box{
+        width: 46%;
+    }
+    .third-section .partner-img .div{
+        width: 32%;
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (max-width:750px){
+    .banner{
+        padding: 0 20px;
+    }
+    .banner .h1 {
+        font-size: 50px;
+    }
+    .second-section{
+        padding: 0 30px;
+    }
+
+}
+
+@media screen and (max-width:650px){
+    .fourth-section .second-sub-div .small-box,.fourth-section .second-sub-div .big-box{
+        width: 95%;
+        margin-bottom: 30px;
+    }
+    .third-section .partner-img .div{
+        width: 99%;
+    }
+
+}
+
+
+@media screen and (max-width:450px){
+    .logo{
+        width: 150px;
+    }
+    .nav{
+        padding: 0 10px;
+    }
+    .toggle-icon .menu-icon{
+        padding: 1.0rem 0;
+    }
+    .banner .h3{
+        font-size: 15px;
+    }
+    .banner .h1{
+        font-size: 30px;
+        text-shadow: 2px 2px #155d33;
+    }
+    .banner .btn{
+        margin-bottom: 10px;
+    }
+    .fourth-section{
+        padding: 50px 20px;
+    }
+    .whatsapp{
+        width: 30px;
+        padding: 5px;
+    }
+
+}
+
+@media screen and (max-width:370px){
+    .second-section{
+        height: unset;
+        padding: 40px 20px;
+    }
+    .second-section .overlay .h1 {
+        font-size: 30px;
+    }
+    .second-section .overlay .p {
+        font-size: 15px;
+    }
+    .fourth-section .overlay .h1{
+        font-size: 30px;
+    }
+    
+}

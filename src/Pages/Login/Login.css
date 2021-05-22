@@ -1,0 +1,7 @@
+.login{
+    min-height: 100vh;
+    display: flex;
+    padding-top: 60px;
+    justify-content: center;
+    font-family: 'Lato', sans-serif;
+}
