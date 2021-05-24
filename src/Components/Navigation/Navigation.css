@@ -1,7 +1,7 @@
 .nav{
     padding: 0px 40px;
     background: white;
-    min-height: 10vh;
+    min-height: 65px;
     transition: height 1s ease-in-out;
     overflow: hidden;
     height: 0;
@@ -31,10 +31,13 @@
     padding: 1.5rem 0;
 }
 .toggle-icon .menu-icon .drop-icon{
-    width: 1.6rem;
+    width: 1.3rem;
 }
 .collapse{
-    height: 20rem;
+    height: 13rem;
+}
+.dash-collapse{
+    height: 23rem;
 }
 .nav-list{
     padding: 20px 0;
@@ -45,6 +48,7 @@
     color: #000;
     text-decoration: none;
     font-family: 'Lato', sans-serif;
+    cursor: pointer;
 }
 .nav-list .list.active{
     color: #2aba66;
@@ -62,12 +66,9 @@
 
 
 
-@media screen and (max-width:1000px){
+@media screen and (max-width:1030px){
     .nav-menu{
         flex-direction: column;
-    }
-    .logo{
-        width: 200px;
     }
     .toggle-icon{
         display: block;
@@ -78,14 +79,14 @@
         flex-direction: column;
     }
     .list{
-        padding-bottom: 5px;
+        padding-bottom: 15px;
     }
 }
 
 
 @media screen and (max-width:450px){
     .logo{
-        width: 150px;
+        width: 140px;
     }
     .nav{
         padding: 0 10px;

@@ -5,3 +5,15 @@
     justify-content: center;
     font-family: 'Lato', sans-serif;
 }
+
+.authError{
+    color: red;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.authSuccess{
+    color: green;
+    text-align: center;
+    margin-bottom: 2rem;
+}

@@ -1,25 +1,53 @@
-import React, { useRef }from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useRef }from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import Navigation from '../../Components/Navigation/Navigation';
 import logo2 from '../../images/logo (2).png';
 import './Register.css';
 
-
-
 const Register = ()=>{
+    const [formLoading, setFormLoading] = useState(false);
+    const [registerError, setRegisterError] = useState('');
+    const [registerSuccess, setRegisterSuccess] = useState('');
     const {
         register,
         handleSubmit,
-        errors,
+        formState: { errors },
         watch
     } = useForm();
 
+    const history = useHistory();
     const password = useRef({});
     password.current = watch('password', '');
 
-    const onRegister = (userData)=>{
-        console.log(userData)
+    const onRegister = (formData)=>{
+        window.scrollTo({top: 0})
+        setFormLoading(true)
+        setRegisterError('')
+        setRegisterSuccess('')
+        fetch(`${process.env.REACT_APP_API_URL}/auth/register`, {
+			method: 'post',
+			headers: {'content-Type': 'application/json'},
+			body: JSON.stringify(formData)
+		})
+		.then(res=> res.json())
+		.then(data=> {
+			if(data.success){
+                setRegisterSuccess(data.message)
+                setFormLoading(false)
+                setTimeout(()=>{
+                    history.push("/login")
+                }, 2000)
+			}else{
+            	setRegisterError(data.message)
+                setFormLoading(false)
+			}
+		})
+        .catch(err=>{
+            console.log(err);
+            setRegisterError("An error occured")
+            setFormLoading(false);
+        })  
     }
 
 
@@ -33,8 +61,10 @@ const Register = ()=>{
                             <img className="img" src={logo2} alt=""/>
                         </div>
                     </div>
+                    <div className="authError">{registerError}</div>
+                    <div className="authSuccess">{registerSuccess}</div>
                     <form className="form" onSubmit={handleSubmit(onRegister)}>
-                        <div>
+                        <div className="input-wrapper">
                             <input 
                                 className="input" 
                                 type="text" 
@@ -42,9 +72,9 @@ const Register = ()=>{
                                 name="firstname"
                                 {...register('firstname', { required: 'First Name is required' })}
                             /><br/>
-                            {/* {errors.firstname && <h6 className = 'vError'>{errors.firstname.message}</h6>} */}
+                            {errors.firstname && <h6 className = 'vError'>{errors.firstname.message}</h6>}
                         </div>
-                        <div>
+                        <div className="input-wrapper">
                             <input 
                                 className="input" 
                                 type="text" 
@@ -52,9 +82,9 @@ const Register = ()=>{
                                 name="lastname"
                                 {...register('lastname', { required: 'Last Name is required' })}
                             /><br/>
-                            {/* {errors.lastname && <h6 className = 'vError'>{errors.lastname.message}</h6>} */}
+                            {errors.lastname && <h6 className = 'vError'>{errors.lastname.message}</h6>}
                         </div>
-                        <div>
+                        <div className="input-wrapper">
                             <input 
                                 className="input" 
                                 type="email" 
@@ -62,9 +92,9 @@ const Register = ()=>{
                                 name="email"
                                 {...register('email', { required: 'Email is required' })}
                             /><br/>
-                            {/* {errors.email && <h6 className = 'vError'>{errors.email.message}</h6>} */}
+                            {errors.email && <h6 className = 'vError'>{errors.email.message}</h6>}
                         </div>
-                        <div>
+                        <div className="input-wrapper">
                             <input 
                                 className="input" 
                                 type="text" 
@@ -72,9 +102,9 @@ const Register = ()=>{
                                 name="city"
                                 {...register('city', { required: 'City is required' })}
                             /><br/>
-                            {/* {errors.city && <h6 className = 'vError'>{errors.city.message}</h6>} */}
+                            {errors.city && <h6 className = 'vError'>{errors.city.message}</h6>}
                         </div>
-                        <div>
+                        <div className="input-wrapper">
                             <input 
                                 className="input" 
                                 type="text" 
@@ -82,9 +112,9 @@ const Register = ()=>{
                                 name="postal"
                                 {...register('postal', { required: 'Postal/Zip Code is required' })}
                             /><br/>
-                            {/* {errors.postal && <h6 className = 'vError'>{errors.postal.message}</h6>} */}
+                            {errors.postal && <h6 className = 'vError'>{errors.postal.message}</h6>}
                         </div>
-                        <div>
+                        <div className="input-wrapper">
                             <input 
                                 className="input" 
                                 type="text" 
@@ -92,9 +122,9 @@ const Register = ()=>{
                                 name="state"
                                 {...register('state', { required: 'State is required' })}
                             /><br/>
-                            {/* {errors.state && <h6 className = 'vError'>{errors.state.message}</h6>} */}
+                            {errors.state && <h6 className = 'vError'>{errors.state.message}</h6>}
                         </div>
-                        <div>
+                        <div className="input-wrapper">
                             <input 
                                 className="input" 
                                 type="text" 
@@ -102,9 +132,9 @@ const Register = ()=>{
                                 name="country"
                                 {...register('country', { required: 'Country is required' })}
                             /><br/>
-                            {/* {errors.country && <h6 className = 'vError'>{errors.country.message}</h6>} */}
+                            {errors.country && <h6 className = 'vError'>{errors.country.message}</h6>}
                         </div>
-                        <div>
+                        <div className="input-wrapper">
                             <input 
                                 className="input" 
                                 type="tel" 
@@ -112,28 +142,29 @@ const Register = ()=>{
                                 name="phone"
                                 {...register('phone', { required: 'Phone Number is required' })}
                             /><br/>
-                            {/* {errors.phone && <h6 className = 'vError'>{errors.phone.message}</h6>} */}
+                            {errors.phone && <h6 className = 'vError'>{errors.phone.message}</h6>}
                         </div>
-                        <div>
+                        <div className="input-wrapper">
                             <input 
                                 className="input" 
                                 type="email" 
                                 placeholder="Referral Email" 
                                 name="refemail"
+                                {...register('refemail')}
                             /><br/>
-                            {/* {errors.refemail && <h6 className = 'vError'>{errors.refemail.message}</h6>} */}
+                            {errors.refemail && <h6 className = 'vError'>{errors.refemail.message}</h6>}
                         </div>
-                        <div>
-                            <input 
+                        <div className="input-wrapper">
+                            <input
                                 className="input" 
                                 type="password" 
                                 placeholder="Password" 
                                 name="password"
-                                {...register('passwrod', { required: 'Provide a password' })}
+                                {...register("password", { required: 'Provide a password' })}
                             /><br/>
-                            {/* {errors.password && <h6 className = 'vError'>{errors.password.message}</h6>} */}
+                            {errors.password && <h6 className = 'vError'>{errors.password.message}</h6>}
                         </div>
-                        <div>
+                        <div className="input-wrapper">
                             <input 
                                 className="input" 
                                 type="password" 
@@ -145,10 +176,10 @@ const Register = ()=>{
                                         value === password.current || 'The passwords do not match',
                                 })}
                             /><br/>
-                            {/* {errors.confirm_password && <h6 className = 'vError'>{errors.confirm_password.message}</h6>} */}
+                            {errors.confirm_password && <h6 className = 'vError'>{errors.confirm_password.message}</h6>}
                         </div>
-                        <div>
-                            <input className="button" type="submit" value="Sign Up"/>
+                        <div className="button-wrapper">
+                            <input className="button" type="submit" value={formLoading?".....": "Sign up"}/>
                         </div>
                         
                         <div className="switch2">

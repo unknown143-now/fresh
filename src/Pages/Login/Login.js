@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import Loading from "../../Components/Loading/Loading";
 import Navigation from "../../Components/Navigation/Navigation";
@@ -8,11 +8,15 @@ import "./Login.css";
 
 const Login = ({ logUserIn, logOut })=>{
     const [loading, setLoading] = useState(true);
+    const [formLoading, setFormLoading] = useState(false);
+    const [loginError, setLoginError] = useState('');
+
+    const history = useHistory();
     
     const {
         register,
         handleSubmit,
-        errors
+        formState: {errors}
     } = useForm();
 
     useEffect(()=>{
@@ -20,18 +24,19 @@ const Login = ({ logUserIn, logOut })=>{
             fetch(`${process.env.REACT_APP_API_URL}/user/profile/${userId}`)
             .then(res=> res.json())
             .then(data=> {
-                if(data.id){
-                    logUserIn(data)
+                if(data.user){
+                    logUserIn(data.user)
+                    history.push("/dashboard")
                     setLoading(false)
                 }else{
                     logOut()
+                    history.push("/login")
                     console.log('not found')
                     setLoading(false)
                 }
             })
             .catch(err=>{
                 console.log(err)
-                console.log('unable to access server')
                 setLoading(false)
             })
         }
@@ -48,9 +53,32 @@ const Login = ({ logUserIn, logOut })=>{
         // eslint-disable-next-line
     }, [])
 
-    const onLogin = (userData)=>{
-        console.log(userData)
+    const onLogin = (formData)=>{
+        setFormLoading(true)
+        setLoginError('')
+        fetch(`${process.env.REACT_APP_API_URL}/auth/login`, {
+			method: 'post',
+			headers: {'content-Type': 'application/json'},
+			body: JSON.stringify(formData)
+		})
+		.then(res=> res.json())
+		.then(data=> {
+			if(data.user){
+                setFormLoading(false)
+                logUserIn({...data.user, remember_me: formData.remember_me})
+                history.push("/dashboard")
+			}else{
+            	setLoginError(data.message)
+                setFormLoading(false)
+			}
+		})
+        .catch(err=>{
+            console.log(err);
+            setLoginError("An error occured")
+            setFormLoading(false);
+        })  
     }
+
   return(
       loading?
       <Loading/>
@@ -64,41 +92,42 @@ const Login = ({ logUserIn, logOut })=>{
                         <img className="img" src={logo2} alt=""/>
                     </div>
                 </div>
+                <div className="authError">{loginError}</div>
                 <form className="form" onSubmit={handleSubmit(onLogin)}>
-                    <div>
+                    <div className="input-wrapper">
                         <input 
                             className="input" 
                             type="email" 
                             placeholder="Email-address" 
                             name="email"
-                            {...register('email', { required: 'Email is required' })}
+                            {...register('email', { required: 'Enter Email' })}
                         /><br/>
-                        {/* {errors.email && <h6 className = 'vError'>{errors.email.message}</h6>} */}
+                        {errors.email && <h6 className = 'vError'>{errors.email.message}</h6>}
                     </div>
-                    <div>
+                    <div className="input-wrapper">
                         <input 
                             className="input" 
                             type="password" 
                             placeholder="Password" 
                             name="password"
-                            {...register('passwrod', { required: 'Enter a password' })}
+                            {...register('password', { required: 'Enter password' })}
                         /><br/>
-                        {/* {errors.password && <h6 className = 'vError'>{errors.password.message}</h6>} */}
+                        {errors.password && <h6 className = 'vError'>{errors.password.message}</h6>}
                     </div>
                     <div className="switch">
                         <div className="switch2">
                             <input
                                 className="box"
                                 type="checkbox" 
-                                name="check"
-                                {...register('check')}
+                                name="remember_me"
+                                {...register('remember_me')}
                             /> 
                             <p>Remember Me</p>
                         </div>
                         <Link to="" className="side"> Forgot password?</Link>
                     </div>
-                    <div>
-                        <input className="button" type="submit" value="Sign In"/>
+                    <div className="button-wrapper">
+                        <input className="button" type="submit" value={formLoading?".....": "Sign In"}/>
                     </div>
                     <div className="switch2">
                         <p className="p-tag">Don't have an account?</p>

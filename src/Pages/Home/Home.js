@@ -5,12 +5,10 @@ import two from '../../images/two.png';
 import three from '../../images/three.png';
 import four from '../../images/four.png';
 import five from '../../images/five.png';
-import { ReactComponent as WhatsappLogo } from '../../svg/whatsapp-brands.svg';
 import Navigation from '../../Components/Navigation/Navigation';
 import UseScript from '../../Components/UseScript/UseScript';
+import Footer from '../../Components/Footer/Footer';
 import './Home.css';
-
-
 
 
 const Home = ()=>{
@@ -20,15 +18,15 @@ const Home = ()=>{
         <div className="Home">
             <Navigation page='Home'/>
             <section className="banner">
-            <div className="banner-sub">
-                <h3 className="h3">HOME OF INVESTMENT</h3>
-                <div className="p"><p >You can instantly receive and send money to almost anyone anywhere in the world, anytime.</p></div>
-                <h1 className="h1">SWIFT BUSINESS PAY PRO</h1>
-                <div className="buttons">
-                    <Link to="/register"><button className="btn one">Get Started</button></Link>
-                    <Link to="/login"><button className="btn two">Login</button></Link>
+                <div className="banner-sub">
+                    <h3 className="h3">HOME OF INVESTMENT</h3>
+                    <div className="p"><p >You can instantly receive and send money to almost anyone anywhere in the world, anytime.</p></div>
+                    <h1 className="h1">SWIFT BUSINESS PAY PRO</h1>
+                    <div className="buttons">
+                        <Link to="/register"><button className="btn one">Get Started</button></Link>
+                        <Link to="/login"><button className="btn two">Login</button></Link>
+                    </div>
                 </div>
-            </div>
             </section>
             <section className="second-section">
                 <div className="overlay">
@@ -95,17 +93,7 @@ const Home = ()=>{
                 </div>
             </section>
             <div className="cryptohopper-web-widget" data-id="4"></div>
-            <div className="cryptolive-wrapper">
-                <div className="cryptolive">
-                    <iframe src="https://widget.coinlib.io/widget?type=horizontal_v2&theme=dark&pref_coin_id=1505&invert_hover=no" title="crypto live" width="100%" height="36px" scrolling="auto" marginWidth="0" marginHeight="0" frameBorder="0" border="0" style={{ border:0, margin:0, padding:0 }}/>
-                </div>
-            </div>
-            <footer className="footer">Copyright &copy; Swift Business Pay Pro</footer>
-            <a href="http://wa.me/79058423055">
-                <div className="whatsapp">
-                    <WhatsappLogo className="img"/>
-                </div>
-            </a>
+            <Footer/>
         </div>
     )
 }
