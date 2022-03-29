@@ -3,10 +3,11 @@ import { Link, useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import Loading from "../../Components/Loading/Loading";
 import Navigation from "../../Components/Navigation/Navigation";
+import Footer from "../../Components/Footer/Footer";
 import logo2 from "../../images/logo (2).png";
 import "./Login.css";
 
-const Login = ({ logUserIn, logOut })=>{
+const Login = ({ role, logUserIn, logOut, logAdminIn })=>{
     const [loading, setLoading] = useState(true);
     const [formLoading, setFormLoading] = useState(false);
     const [loginError, setLoginError] = useState('');
@@ -44,7 +45,7 @@ const Login = ({ logUserIn, logOut })=>{
 
         const userId = localStorage.getItem('userId')
 
-        if(userId){
+        if(userId && role === 'Client'){
             getUserProfile(userId)
         }else{
             setLoading(false)
@@ -59,15 +60,19 @@ const Login = ({ logUserIn, logOut })=>{
         fetch(`${process.env.REACT_APP_API_URL}/auth/login`, {
 			method: 'post',
 			headers: {'content-Type': 'application/json'},
-			body: JSON.stringify(formData)
+			body: JSON.stringify({...formData, email: formData.email.toLowerCase(), role})
 		})
 		.then(res=> res.json())
 		.then(data=> {
-			if(data.user){
+			if(data.user && role === "Client"){
                 setFormLoading(false)
                 logUserIn({...data.user, remember_me: formData.remember_me})
                 history.push("/dashboard")
-			}else{
+			}else if(data.success && role === "Admin"){
+                setFormLoading(false)
+                logAdminIn()
+                history.push("/admin/dashboard")
+            }else{
             	setLoginError(data.message)
                 setFormLoading(false)
 			}
@@ -92,7 +97,7 @@ const Login = ({ logUserIn, logOut })=>{
                         <img className="img" src={logo2} alt=""/>
                     </div>
                 </div>
-                <div className="authError">{loginError}</div>
+                { loginError && <div className="authError">{loginError}</div> }
                 <form className="form" onSubmit={handleSubmit(onLogin)}>
                     <div className="input-wrapper">
                         <input 
@@ -136,6 +141,7 @@ const Login = ({ logUserIn, logOut })=>{
                 </form>
             </div>
         </section>
+        <Footer/>
       </div>
   )
 }

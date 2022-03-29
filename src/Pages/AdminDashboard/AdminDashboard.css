@@ -1,0 +1,86 @@
+.transaction{
+    width: 100%;
+    padding: 20px 30px;
+    font-family: 'Lato', sans-serif;
+}
+.transaction .overlay{
+    padding: 20px;
+    background: white;
+}
+.transaction .first{
+    display: flex;
+    justify-content: space-between;
+    color: #155d33;
+    margin-bottom: 20px;
+}
+.transaction .first .a-tag{
+    text-decoration: none;
+    font-size: 13px;
+    color: #219451;
+    padding-top: 10px;
+}
+.transaction .first .search .search-box{
+    padding: 10px;
+    border-radius: 50px;
+    border: 3px solid rgb(139, 136, 136);
+    outline: none;
+ }
+.transaction .overflow{
+    overflow-x:auto;
+}
+.transaction .table{
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.transaction .tr{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 30px;
+}
+.transaction .tr .td,.transaction tr .th{
+    width: 13.5%;
+    text-align: left;
+    padding: 8px;
+    margin-right: 20px;
+}
+.transaction tr .th{
+    color: #219451;
+}
+.transaction .tr .td1,.transaction tr .th1{
+    width: 22.5%;
+    text-align: left;
+    padding: 8px;
+    margin-right: 20px;
+    overflow-x: auto;
+}
+.transaction tr .th1{
+    color: #219451;
+}
+
+
+@media screen and (max-width:550px){
+    .transaction .first{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .transaction .first .search{
+        width: 100%;
+        margin: 20px 0;
+    }
+    .transaction .first .search .search-box {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:450px){
+    .transaction {
+        padding: 20px 10px;
+    }
+    .transaction .overlay {
+        padding: 20px 10px;
+        height: auto;
+    }
+    
+    
+}

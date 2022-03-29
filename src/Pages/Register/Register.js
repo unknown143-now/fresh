@@ -28,7 +28,7 @@ const Register = ()=>{
         fetch(`${process.env.REACT_APP_API_URL}/auth/register`, {
 			method: 'post',
 			headers: {'content-Type': 'application/json'},
-			body: JSON.stringify(formData)
+			body: JSON.stringify({...formData, email: formData.email.toLowerCase(), role: "Client"})
 		})
 		.then(res=> res.json())
 		.then(data=> {
@@ -61,8 +61,8 @@ const Register = ()=>{
                             <img className="img" src={logo2} alt=""/>
                         </div>
                     </div>
-                    <div className="authError">{registerError}</div>
-                    <div className="authSuccess">{registerSuccess}</div>
+                    { registerError && <div className="authError">{registerError}</div> }
+                    { registerSuccess && <div className="authSuccess">{registerSuccess}</div> }
                     <form className="form" onSubmit={handleSubmit(onRegister)}>
                         <div className="input-wrapper">
                             <input 
@@ -140,7 +140,13 @@ const Register = ()=>{
                                 type="tel" 
                                 placeholder="Phone Number" 
                                 name="phone"
-                                {...register('phone', { required: 'Phone Number is required' })}
+                                {...register('phone', { 
+                                    required: 'Phone Number is required', 
+                                    pattern: {
+                                        value: /^(?:[+\d].*\d|\d)$/,
+                                        message: 'Phone Number must be in international format'
+                                    }
+                                })}
                             /><br/>
                             {errors.phone && <h6 className = 'vError'>{errors.phone.message}</h6>}
                         </div>
@@ -148,7 +154,7 @@ const Register = ()=>{
                             <input 
                                 className="input" 
                                 type="email" 
-                                placeholder="Referral Email" 
+                                placeholder="Referral Email (optional)" 
                                 name="refemail"
                                 {...register('refemail')}
                             /><br/>
@@ -160,7 +166,18 @@ const Register = ()=>{
                                 type="password" 
                                 placeholder="Password" 
                                 name="password"
-                                {...register("password", { required: 'Provide a password' })}
+                                {...register("password", { 
+                                    required: 'Provide a password',
+                                    minLength: {
+                                      value: 8,
+                                      message: 'Password must have at least 8 characters',
+                                    },
+                                    pattern: {
+                                      value: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$/,
+                                      message:
+                                        'Passwords have to contain at least one uppercase and one lower case character and a number',
+                                    }
+                                })}
                             /><br/>
                             {errors.password && <h6 className = 'vError'>{errors.password.message}</h6>}
                         </div>

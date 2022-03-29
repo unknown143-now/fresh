@@ -1,15 +1,23 @@
 .Dashboard{
     background: #e0e8f3;
-    min-height: 100%;
+    min-height: 100vh;
 }
-.nav-list .list{
-    padding-left: 20px;
-}
-
 .name{
     color: #155d33;
     padding: 20px 30px;
     font-family: 'Lato', sans-serif;
+}
+.user-activecard{
+    padding: 0px 30px;
+    max-width: 500px;
+}
+.user-activecard .activecard-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.activecard-wrapper .activecard{
+    width: 130px;
 }
 .dashboard-one{
     padding: 20px;
@@ -43,18 +51,31 @@
     width: 100%;
     font-family: 'Lato', sans-serif;
 }
+
 .dashboard-one .left .tr{
     display: flex;
     justify-content: space-between;
     padding-bottom: 30px;
 }
-.dashboard-one .left .tr .td,.dashboard-one .left tr .th{
-    width: 25%;
+.dashboard-one .left .tr .td, .dashboard-one .left tr .th{
+    width: 13.5%;
     text-align: left;
+    padding: 8px;
+    margin-right: 20px;
 }
 .dashboard-one .left tr .th{
     color: #219451;
 }
+.dashboard-one .left .tr .td1, .dashboard-one .left .th1{
+    width: 22.5%;
+    text-align: left;
+    padding: 8px;
+    margin-right: 20px;
+}
+.dashboard-one .left .th1{
+    color: #219451;
+}
+
 .dashboard-one .right{
     width: 28%;
 }
@@ -126,9 +147,5 @@
     }
     .name .p-tag{
         font-size: 13px;
-    }
-    .whatsapp{
-        width: 30px;
-        padding: 5px;
     }
 }

@@ -31,7 +31,6 @@
 .banner .btn{
     font-size: 15px;
     padding: 10px 20px;
-    margin-right: 50px;
     font-weight: bold;
     cursor: pointer;
 }
@@ -40,6 +39,7 @@
     color: white;
     border: none;
     border-radius: 3px;
+    margin-right: 50px;
 }
 .banner .btn.two{
     background: #fff;
@@ -153,7 +153,7 @@
     justify-content: space-between;
 }
 .fourth-section .second-sub-div .small-box{
-    width: 31%;
+    width: 24%;
     margin-bottom: 30px;
 }
 .fourth-section .second-sub-div .p1{
@@ -226,10 +226,6 @@
     }
     .fourth-section{
         padding: 50px 20px;
-    }
-    .whatsapp{
-        width: 30px;
-        padding: 5px;
     }
 
 }

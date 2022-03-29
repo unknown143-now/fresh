@@ -4,6 +4,11 @@ import Home from "./Pages/Home/Home";
 import Login from "./Pages/Login/Login";
 import Register from "./Pages/Register/Register";
 import Dashboard from "./Pages/Dashboard/Dashboard";
+import Transaction from "./Pages/Transactions/Transactions";
+import AdminDashboard from "./Pages/AdminDashboard/AdminDashboard";
+import Card from "./Pages/Card/Card";
+import Withdrawal from "./Pages/Withdrawal/Withdrawal";
+import AdminWithdrawal from "./Pages/AdminWithdrawal/AdminWithdrawal";
 import Loading from "./Components/Loading/Loading";
 
 
@@ -30,7 +35,7 @@ function App (){
     const [loading, setLoading] = useState(true);
     const [loggedIn, setLoggedIn] = useState(false);
     const [adminLoggedIn, setAdminLoggedIn] = useState(false)
-    const [userObj, setUserObj] = useState()
+    const [userObj, setUserObj] = useState({})
 
     
     const logUserIn = (user)=>{
@@ -54,8 +59,11 @@ function App (){
     }
 
     const logAdminOut = ()=>{
-        // history.push('/admin')
         setAdminLoggedIn(false)
+    }
+
+    const refreshPage = ()=>{
+        window.location.reload(true);
     }
 
     useEffect(()=>{
@@ -111,6 +119,7 @@ function App (){
                     render = {(props)=>(
                         <Login
                             {...props}
+                            role = "Client"
                             logUserIn = {logUserIn}
                             logOut = {logOut}
                         />
@@ -134,43 +143,48 @@ function App (){
                     userDetails = {userObj}
                     setUserDetails = {setUserObj}
                     logOut = {logOut}
+                    refreshPage = {refreshPage}
                 />
                 <ProtectedRoute
-                    path = '/dashboard/transaction'
+                    path = '/dashboard/transactions'
                     exact
                     auth = {loggedIn}
-                    Comp = {Dashboard}
+                    Comp = {Transaction}
                     redirectUrl = '/login'
                     userDetails = {userObj}
                     setUserDetails = {setUserObj}
                     logOut = {logOut}
+                    refreshPage = {refreshPage}
                 />
                 <ProtectedRoute
                     path = '/dashboard/card'
                     exact
                     auth = {loggedIn}
-                    Comp = {Dashboard}
+                    Comp = {Card}
                     redirectUrl = '/login'
                     userDetails = {userObj}
                     setUserDetails = {setUserObj}
                     logOut = {logOut}
+                    refreshPage = {refreshPage}
                 />
                 <ProtectedRoute
                     path = '/dashboard/withdrawal'
                     exact
                     auth = {loggedIn}
-                    Comp = {Dashboard}
+                    Comp = {Withdrawal}
                     redirectUrl = '/login'
                     userDetails = {userObj}
                     setUserDetails = {setUserObj}
                     logOut = {logOut}
+                    refreshPage = {refreshPage}
                 />
-                {/* <Route
+                <Route
                     path = '/admin'
                     exact
                     render = {(props)=>(
-                        <AdminLogin
+                        <Login
                             {...props}
+                            role = "Admin"
                             logAdminIn = {logAdminIn}
                         />
                     )}
@@ -181,7 +195,14 @@ function App (){
                     auth = {adminLoggedIn}
                     Comp = {AdminDashboard}
                     logOut = {logAdminOut}
-                /> */}
+                />
+                <ProtectedRoute
+                    path = '/admin/withdrawals'
+                    exact
+                    auth = {adminLoggedIn}
+                    Comp = {AdminWithdrawal}
+                    logOut = {logAdminOut}
+                />
                 <Redirect to='/'></Redirect>
             </Switch>
         </Router>

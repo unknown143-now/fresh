@@ -2,8 +2,9 @@
     background: url('../../images/banner.jpg');
     background-repeat: no-repeat;
     display: flex;
+    flex-direction: column;
     padding: 60px 0;
-    justify-content: center;
+    align-items: center;
     background-size: cover;
     font-family: 'Lato', sans-serif;
 }
@@ -31,7 +32,7 @@
 .login .form .input-wrapper{
     margin-bottom: 30px;
 }
-.login .form .input-wrapper .vError{
+.vError{
     padding-left: 20px;
 }
 .login .form .input{

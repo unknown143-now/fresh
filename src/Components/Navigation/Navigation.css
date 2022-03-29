@@ -12,6 +12,11 @@
     flex-wrap: wrap;
     justify-content: space-between;
 }
+.top-nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 .logo{
     width: 150px;
 }
@@ -19,22 +24,14 @@
     width: 100%;
 }
 .toggle-icon{
-    width: 90%;
-    position: absolute;
-    top: 0%;
     cursor: pointer;
     display: none;
-}
-.toggle-icon .menu-icon{
-    display: flex;
-    justify-content: flex-end;
-    padding: 1.5rem 0;
 }
 .toggle-icon .menu-icon .drop-icon{
     width: 1.3rem;
 }
 .collapse{
-    height: 13rem;
+    height: 15rem;
 }
 .dash-collapse{
     height: 23rem;
@@ -71,7 +68,8 @@
         flex-direction: column;
     }
     .toggle-icon{
-        display: block;
+        display: flex;
+        align-items: center;
     }
     .nav-row{
         display: flex;

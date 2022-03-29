@@ -1,0 +1,33 @@
+.Notification{
+    display: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    font-size: 18px;
+    z-index: 2;
+}
+.Notify-error, .Notify-success{
+    color: white;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    padding: 10px 2px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.Notify-error{
+    background-color: red;
+}
+.Notify-success{
+    background-color: green;
+}
+.close-icon{
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
