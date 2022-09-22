@@ -1,0 +1,76 @@
+@import '../../../../resources';
+.faq {
+  color: #fff;
+  padding: 50px 20px;
+  background-color: #1011139f;
+  @include Exo;
+  .top {
+    text-align: center;
+    padding-bottom: 30px;
+    h1 {
+      font-size: 50px;
+      font-weight: 600;
+      b {
+        color: #cca354;
+      }
+      @include mobile-6 {
+        font-size: 30px;
+      }
+    }
+    p {
+      font-size: 16px;
+      line-height: 30px;
+      padding-bottom: 15px;
+      @include mobile-6 {
+        font-size: 14px;
+      }
+    }
+  }
+  .wrap {
+    display: flex;
+    justify-content: center;
+    .cover {
+      width: 70%;
+      @include mobile-4 {
+        width: 100%;
+      }
+      .faq-listt {
+        width: 100%;
+        margin-bottom: 30px;
+        .list-top {
+          display: flex;
+          background-color: #343a40;
+          padding: 15px 20px;
+          align-items: center;
+          -webkit-transition: all 0.3s;
+          -o-transition: all 0.3s;
+          transition: all 0.3s;
+          border: 1px solid rgba(204, 163, 84, 0.45);
+          border-radius: 5px;
+          cursor: pointer;
+          &.active {
+            background-color: #cca354;
+          }
+          svg {
+            font-size: 20px;
+          }
+          p {
+            color: #ffffff;
+            font-size: 16px;
+            padding-left: 15px;
+            @include Exo;
+          }
+        }
+        .faq-body {
+          border-top: none;
+          transition: all 0.3s;
+          padding: 20px 30px;
+          background-color: #343a40;
+          color: #ffffff;
+          font-size: 16px;
+          line-height: 1.7;
+        }
+      }
+    }
+  }
+}

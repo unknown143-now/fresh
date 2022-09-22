@@ -4,7 +4,7 @@
     color: #fff;
 }
 .whatsapp{
-    background: #25D366;
+    background: #cca354;
     width: 50px;
     height: 50px;
     display: flex;
@@ -19,7 +19,7 @@
     width: 30px;
 }
 .cryptolive-wrapper{
-    background-color: #1D2330; 
+    /* background-color: #1D2330;  */
     overflow: hidden; 
     box-sizing: border-box;
     border: 1px solid #282E3B; 

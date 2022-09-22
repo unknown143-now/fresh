@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@300;400;500;600;700&display=swap');
+
+$mobile-1: 1100px;
+$mobile-2: 1024px;
+$mobile-3: 900px;
+$mobile-4: 800px;
+$mobile-5: 700px;
+$mobile-6: 600px;
+$mobile-7: 550px;
+$mobile-8: 420px;
+$mobile-9: 320px;
+$mobile-10: 280px;
+$special: 1700px;
+
+@mixin mobile-1 {
+  @media (max-width: $mobile-1) {
+    @content;
+  }
+}
+@mixin mobile-2 {
+  @media (max-width: $mobile-2) {
+    @content;
+  }
+}
+@mixin mobile-3 {
+  @media (max-width: $mobile-3) {
+    @content;
+  }
+}
+@mixin mobile-4 {
+  @media (max-width: $mobile-4) {
+    @content;
+  }
+}
+@mixin mobile-5 {
+  @media (max-width: $mobile-5) {
+    @content;
+  }
+}
+@mixin mobile-6 {
+  @media (max-width: $mobile-6) {
+    @content;
+  }
+}
+@mixin mobile-7 {
+  @media (max-width: $mobile-7) {
+    @content;
+  }
+}
+@mixin mobile-8 {
+  @media (max-width: $mobile-8) {
+    @content;
+  }
+}
+@mixin mobile-9 {
+  @media (max-width: $mobile-9) {
+    @content;
+  }
+}
+@mixin mobile-10 {
+  @media (max-width: $mobile-10) {
+    @content;
+  }
+}
+@mixin special {
+  @media (min-width: $special) {
+    @content;
+  }
+}
+
+@mixin Exo {
+ font-family: 'Exo', sans-serif;
+}
+

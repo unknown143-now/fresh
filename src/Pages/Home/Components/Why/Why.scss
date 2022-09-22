@@ -1,0 +1,71 @@
+@import '../../../../resources';
+.why {
+  padding: 50px 20px;
+  background: linear-gradient(#000000c1, #000000c1),
+    url('../../../../images/why.jpg');
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  @include Exo;
+  color: #fff;
+  .top {
+    text-align: center;
+    padding-bottom: 30px;
+    h1 {
+      font-size: 50px;
+      font-weight: 600;
+      b {
+        color: #cca354;
+      }
+      @include mobile-6 {
+        font-size: 30px;
+      }
+    }
+    p {
+      font-size: 16px;
+      line-height: 30px;
+      padding-bottom: 15px;
+      @include mobile-6 {
+        font-size: 14px;
+      }
+    }
+  }
+  .wrap {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    .card {
+      padding: 30px;
+      background-color: rgba(0, 0, 0, 0.5);
+      margin-bottom: 30px;
+      border-radius: 5px;
+      width: 32%;
+      @include mobile-4 {
+        width: 48%;
+      }
+      @include mobile-7 {
+        width: 100%;
+      }
+    }
+    .head {
+      color: #cca354;
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      svg {
+        font-size: 30px;
+        margin-right: 15px;
+        color: #cca354;
+      }
+      h1 {
+        font-weight: 600;
+        font-size: 25px;
+      }
+    }
+    p {
+      font-size: 16px;
+      line-height: 1.7;
+    }
+  }
+}
