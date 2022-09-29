@@ -138,18 +138,30 @@ const Card = ({userDetails, logOut})=>{
     }, [page])
     
 
-    return(
-        <div className="Dashboard">
-            {notify.display && <Notification type = {notify.type} message = {notify.message} closeNotify = {closeNotifiaction}/>}
-            <Navigation 
-                page='Dashboard' 
-                dashpage='Card' 
-                logOut={logOut}
-                amount={userDetails.amount}
-            />
-            {displayCardPage()}
-            <Footer/>
+    return (
+      <div className='Dashboard'>
+        {notify.display && (
+          <Notification
+            type={notify.type}
+            message={notify.message}
+            closeNotify={closeNotifiaction}
+          />
+        )}
+        <Navigation
+          page='Dashboard'
+          dashpage='Card'
+          logOut={logOut}
+          amount={userDetails.amount}
+        />
+        {displayCardPage()}
+        <Footer />
+        <div class='bg-animation'>
+          <div id='stars'></div>
+          <div id='stars2'></div>
+          <div id='stars3'></div>
+          <div id='stars4'></div>
         </div>
+      </div>
     )
 }
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import logo1 from '../../images/logo (1).png';
+import logo1 from '../../images/logo.png';
 import { ReactComponent as Menu } from '../../svg/bars-solid.svg';
 import { ReactComponent as Wallet } from '../../svg/wallet-solid.svg';
 import './Navigation.css'

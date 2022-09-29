@@ -1,4 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 import './Investment.scss'
 
 const InvestmentPlan = [
@@ -9,6 +12,7 @@ const InvestmentPlan = [
     Total: '20%',
     amount1: 500,
     amount2: 1000,
+    aos: 'fade-up',
   },
   {
     id: 2,
@@ -17,6 +21,7 @@ const InvestmentPlan = [
     Total: '30%',
     amount1: 1100,
     amount2: 2000,
+    aos: 'fade-down',
   },
   {
     id: 3,
@@ -25,6 +30,7 @@ const InvestmentPlan = [
     Total: '40%',
     amount1: 2100,
     amount2: 3000,
+    aos: 'fade-up',
   },
   {
     id: 4,
@@ -33,6 +39,7 @@ const InvestmentPlan = [
     Total: '50%',
     amount1: 3100,
     amount2: 10000,
+    aos: 'fade-down',
   },
   {
     id: 5,
@@ -41,6 +48,7 @@ const InvestmentPlan = [
     Total: '90%',
     amount1: 11000,
     amount2: 20000,
+    aos: 'fade-down',
   },
   {
     id: 6,
@@ -49,6 +57,7 @@ const InvestmentPlan = [
     Total: '150%',
     amount1: 21000,
     amount2: 40000,
+    aos: 'fade-up',
   },
   {
     id: 7,
@@ -57,12 +66,16 @@ const InvestmentPlan = [
     Total: '200%',
     amount1: 41000,
     amount2: 999999,
+    aos: 'fade-down',
   },
 ]
 
 function Investment() {
+  useEffect(() => {
+    AOS.init()
+  }, [])
   return (
-    <div className='investment'>
+    <div className='investment' id='plan'>
       <div className='top'>
         <h1>
           <span>Investment</span> <b>Plans</b>
@@ -74,7 +87,12 @@ function Investment() {
       </div>
       <div className='wrap'>
         {InvestmentPlan.map((item) => (
-          <div className='card' key={item.id}>
+          <div
+            className='card'
+            key={item.id}
+            data-aos={item.aos}
+            data-aos-duration='2000'
+          >
             <h1>{item.name}</h1>
             <ul>
               <li>Return {item.Return}</li>
@@ -86,10 +104,12 @@ function Investment() {
               ${item.amount1.toLocaleString()} - $
               {item.amount2.toLocaleString()}{' '}
             </h2>
-            <button>Invest Now</button>
+            <Link to={`/payment/${item.name}`}>
+              <button>Invest Now</button>
+            </Link>
           </div>
         ))}
-        <div className='card'>
+        <div className='card' data-aos='fade-up' data-aos-duration='2000'>
           <h1>Life Time</h1>
           <ul>
             <li>Return 10% {'>'}</li>
@@ -98,7 +118,9 @@ function Investment() {
             <li>Unlimited</li>
           </ul>
           <h2>Above $100,000</h2>
-          <button>Contact us</button>
+          <a href='mailto:proinvestment.supp@gmail.com'>
+            <button>Contact us</button>
+          </a>
         </div>
       </div>
     </div>

@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 import './Calculator.scss'
 
 const InvestmentPlan = [
@@ -39,11 +41,14 @@ const InvestmentPlan = [
   },
 ]
 function Calculator() {
+  useEffect(() => {
+    AOS.init()
+  }, [])
   const [collectPlan, setCollectPlan] = useState(0)
   const [collectAmount, setCollectAmount] = useState(0)
   return (
     <div className='calculator'>
-      <div className='top'>
+      <div className='top' data-aos='fade-up' data-aos-duration='2000'>
         <h1>
           <span>Profit</span> <b>Calculator</b>
         </h1>
@@ -53,7 +58,7 @@ function Calculator() {
           calculator says.
         </p>
       </div>
-      <div className='wrap'>
+      <div className='wrap' data-aos='fade-left' data-aos-duration='2000'>
         <div className='form'>
           <div className='short'>
             <div className='card'>
@@ -84,7 +89,7 @@ function Calculator() {
             <div className='card'>
               <p>Profit Amount</p>
               <h6>
-               $
+                $
                 {(
                   collectPlan * collectAmount +
                   parseInt(collectAmount)

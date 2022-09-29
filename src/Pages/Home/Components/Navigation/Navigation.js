@@ -26,28 +26,28 @@ function Navigation() {
         <div className='listing'>
           <li onClick={handleToggle} className={isActive ? '' : 'fade'}>
             <Link className='link' to='/'>
+            Home
+            </Link>
+          </li>
+          <li onClick={handleToggle} className={isActive ? '' : 'fade'}>
+            <a className='link' href='#about'>
               About Us
-            </Link>
+            </a>
           </li>
           <li onClick={handleToggle} className={isActive ? '' : 'fade'}>
-            <Link className='link' to='/'>
+            <a className='link' href='#plan'>
               Plan
-            </Link>
+            </a>
           </li>
           <li onClick={handleToggle} className={isActive ? '' : 'fade'}>
-            <Link className='link' to='/'>
-              Transactions
-            </Link>
+            <a className='link' href='#work'>
+              How it works
+            </a>
           </li>
           <li onClick={handleToggle} className={isActive ? '' : 'fade'}>
-            <Link className='link' to='/'>
+            <a className='link' href='#faq'>
               FAQ
-            </Link>
-          </li>
-          <li onClick={handleToggle} className={isActive ? '' : 'fade'}>
-            <Link className='link' to='/'>
-              Contact
-            </Link>
+            </a>
           </li>
         </div>
         <div className='buttons'>

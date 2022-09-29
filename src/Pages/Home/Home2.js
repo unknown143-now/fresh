@@ -43,7 +43,7 @@ function Home2() {
           />
         </div>
       </div>
-      <a href='http://wa.me/79058423055'>
+      <a href='http://wa.me/79259521077'>
         <div className='whatsapp'>
           <WhatsappLogo className='img' />
         </div>

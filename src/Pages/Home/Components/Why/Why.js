@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 import './Why.scss'
 import { GoLaw, GoLock } from 'react-icons/go'
 import { GiLightningTrio, GiRosaShield } from 'react-icons/gi'
@@ -73,9 +75,12 @@ const WhyData = [
   },
 ]
 function Why() {
+  useEffect(() => {
+    AOS.init()
+  }, [])
   return (
     <div className='why'>
-      <div className='top'>
+      <div className='top' data-aos='fade-up' data-aos-duration='2000'>
         <h1>
           <span>Why Choose</span> <b>Pro Investment</b>
         </h1>
@@ -88,7 +93,12 @@ function Why() {
 
       <div className='wrap'>
         {WhyData.map((item) => (
-          <div className='card' key={item.id}>
+          <div
+            className='card'
+            key={item.id}
+            data-aos='flip-up'
+            data-aos-duration='2000'
+          >
             <div className='head'>
               {<item.icon />} <h1> {item.title}</h1>
             </div>

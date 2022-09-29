@@ -1,9 +1,9 @@
 .Dashboard{
-    background: #e0e8f3;
+    background: #333;
     min-height: 100vh;
 }
 .name{
-    color: #155d33;
+    color: #fff;
     padding: 20px 30px;
     font-family: 'Lato', sans-serif;
 }
@@ -15,6 +15,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    color: #fff;
 }
 .activecard-wrapper .activecard{
     width: 130px;
@@ -64,16 +65,17 @@
     margin-right: 20px;
 }
 .dashboard-one .left tr .th{
-    color: #219451;
+    color: #f0e3cc;
 }
 .dashboard-one .left .tr .td1, .dashboard-one .left .th1{
     width: 22.5%;
     text-align: left;
     padding: 8px;
     margin-right: 20px;
+    color: #f0e3cc;
 }
 .dashboard-one .left .th1{
-    color: #219451;
+    color: #f0e3cc;
 }
 
 .dashboard-one .right{

@@ -5,18 +5,21 @@
 }
 .transaction .overlay{
     padding: 20px;
-    background: white;
+    background: #333;
+}
+.Admin-dashboard{
+    background: #333;
 }
 .transaction .first{
     display: flex;
     justify-content: space-between;
-    color: #155d33;
+    color: #333;
     margin-bottom: 20px;
 }
 .transaction .first .a-tag{
     text-decoration: none;
     font-size: 13px;
-    color: #219451;
+    color: #333;
     padding-top: 10px;
 }
 .transaction .first .search .search-box{

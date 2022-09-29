@@ -1,78 +1,76 @@
-.debit-card{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 10px 0;
-    height: 90%;
-    text-align: center;
+.debit-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 10px 0;
+  height: 90%;
+  text-align: center;
 }
-.debit-card .card{
-    width: 24%;
-    padding: 20px;
-    background: white;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.debit-card .card {
+  width: 24%;
+  padding: 20px;
+  background: #cca354;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  color: #f0e3cc;
+  justify-content: space-between;
 }
-.debit-card .card .text1{
-    background: #8CC152;
-    color: white;
-    margin-bottom: 10px;
-    font-family: 'Lato', sans-serif;
+.debit-card .card .text1 {
+  background: #333;
+  color: white;
+  margin-bottom: 10px;
+  font-family: 'Lato', sans-serif;
+  padding: 10px 0;
 }
-.debit-card .card .image{
-    width: 100%;
-    margin-bottom: 30px;
+.debit-card .card .image {
+  width: 100%;
+  margin-bottom: 30px;
 }
-.debit-card .card .image .img{
-    width: 100%;
+.debit-card .card .image .img {
+  width: 100%;
 }
-.debit-card .card .text2{
-    font-family: 'Newsreader', serif;
+.debit-card .card .text2 {
+  font-family: 'Newsreader', serif;
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+.debit-card .card .text3 {
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-decoration: underline;
+  font-family: 'Lato', sans-serif;
+}
+.debit-card .card .p-tag {
+  margin-bottom: 30px;
+  font-family: 'Lato', sans-serif;
+}
+.debit-card .card .button {
+  font-size: 15px;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 3px;
+}
+.debit-card .card .button:hover {
+  color: #333;
+  background: #fff;
+  border: 1px solid #333;
+  font-family: 'Lato', sans-serif;
+}
+
+@media screen and (max-width: 900px) {
+  .debit-card .card {
+    width: 48%;
     margin-bottom: 20px;
-    font-size: 22px;
+  }
 }
-.debit-card .card .text3{
+@media screen and (max-width: 600px) {
+  .debit-card .card {
+    width: 98%;
     margin-bottom: 20px;
-    font-weight: bold;
-    text-decoration: underline;
-    font-family: 'Lato', sans-serif;
-}
-.debit-card .card  .p-tag{
-    margin-bottom: 30px;
-    font-family: 'Lato', sans-serif;
-}
-.debit-card .card .button{
-    font-size: 15px;
-    padding: 10px 20px;
-    font-weight: bold;
-    cursor: pointer;
-    background: #8CC152;
-    color: white;
-    border: none;
-    border-radius: 3px;
-}
-.debit-card .card .button:hover{
-    color: #8CC152;
-    background: #fff;
-    border: 1px solid #8CC152;
-    font-family: 'Lato', sans-serif;
-}
-
-
-@media screen and (max-width:900px){
-    .debit-card .card{
-        width: 48%;
-        margin-bottom: 20px;
-    }
-
-    
-}
-@media screen and (max-width:600px){
-    .debit-card .card{
-        width: 98%;
-        margin-bottom: 20px;
-    }
-
+  }
 }

@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 import './Works.scss'
 import { AiOutlineUser, AiOutlineLogin } from 'react-icons/ai'
 import { GiPayMoney, GiCash } from 'react-icons/gi'
 function Works() {
+  useEffect(() => {
+    AOS.init()
+  }, [])
   return (
-    <div className='works'>
-      <div className='top'>
+    <div className='works' id='work'>
+      <div className='top' data-aos='fade-up' data-aos-duration='2000'>
         <h1>
           <span>How</span> <b>Pro Investment</b> <span>Works</span>
         </h1>
@@ -14,7 +19,7 @@ function Works() {
           your money and give you profit in your wallet automatically.
         </p>
       </div>
-      <div className='wrap'>
+      <div className='wrap' data-aos='fade-dpwn' data-aos-duration='2000'>
         <div className='card'>
           <div className='round'>
             <AiOutlineUser />

@@ -16,6 +16,11 @@ import Card from './Pages/Card/Card'
 import Withdrawal from './Pages/Withdrawal/Withdrawal'
 import AdminWithdrawal from './Pages/AdminWithdrawal/AdminWithdrawal'
 import Loading from './Components/Loading/Loading'
+import Login2 from './Pages/Login/Login2'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import Register2 from './Pages/Register/Register2'
+import Payment from './Pages/Home/Components/Payment/Payment'
 
 const ProtectedRoute = ({ path, exact, auth, Comp, redirectUrl, ...props }) => {
   if (auth) {
@@ -36,6 +41,20 @@ function App() {
   const [adminLoggedIn, setAdminLoggedIn] = useState(false)
   const [userObj, setUserObj] = useState({})
 
+  const notify = (type, message) => {
+    if (type === 'info') {
+      toast.info(message)
+    }
+    if (type === 'success') {
+      toast.success(message)
+    }
+    if (type === 'warn') {
+      toast.warn(message)
+    }
+    if (type === 'error') {
+      toast.error(message)
+    }
+  }
   const logUserIn = (user) => {
     if (user.remember_me) {
       localStorage.setItem('userId', user.id)
@@ -99,13 +118,40 @@ function App() {
     <Loading />
   ) : (
     <Router>
+      <ToastContainer
+        position='top-right'
+        autoClose={10000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <Switch>
         <Route path='/old' exact render={(props) => <Home {...props} />} />
         <Route path='/' exact>
           <Home2 />
         </Route>
+        <Route path='/payment/:name' exact>
+          <Payment />
+        </Route>
         <Route
           path='/login'
+          exact
+          render={(props) => (
+            <Login2
+              {...props}
+              role='Client'
+              logUserIn={logUserIn}
+              logOut={logOut}
+              notify={notify}
+            />
+          )}
+        />
+        <Route
+          path='/old-login'
           exact
           render={(props) => (
             <Login
@@ -117,9 +163,14 @@ function App() {
           )}
         />
         <Route
-          path='/register'
+          path='/old-register'
           exact
           render={(props) => <Register {...props} />}
+        />
+        <Route
+          path='/register'
+          exact
+          render={(props) => <Register2 {...props} notify={notify} />}
         />
         <ProtectedRoute
           path='/dashboard'
@@ -164,12 +215,13 @@ function App() {
           setUserDetails={setUserObj}
           logOut={logOut}
           refreshPage={refreshPage}
+          notific={notify}
         />
         <Route
           path='/admin'
           exact
           render={(props) => (
-            <Login {...props} role='Admin' logAdminIn={logAdminIn} />
+            <Login2 {...props} role='Admin' logAdminIn={logAdminIn} />
           )}
         />
         <ProtectedRoute
@@ -178,6 +230,7 @@ function App() {
           auth={adminLoggedIn}
           Comp={AdminDashboard}
           logOut={logAdminOut}
+          notific={notify}
         />
         <ProtectedRoute
           path='/admin/withdrawals'
@@ -185,6 +238,7 @@ function App() {
           auth={adminLoggedIn}
           Comp={AdminWithdrawal}
           logOut={logAdminOut}
+          notific={notify}
         />
         <Redirect to='/'></Redirect>
       </Switch>

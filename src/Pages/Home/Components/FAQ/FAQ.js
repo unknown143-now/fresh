@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 import './FAQ.scss'
 import FaqList from './FaqList'
 
@@ -31,8 +33,11 @@ const FaqLists = [
   },
 ]
 function FAQ() {
+  useEffect(() => {
+    AOS.init()
+  }, [])
   return (
-    <div className='faq'>
+    <div className='faq' data-aos='fade-up' data-aos-duration='3000' id='faq'>
       <div className='top'>
         <h1>
           <span>Frequently Asked</span> <b>Questions</b>
@@ -46,7 +51,7 @@ function FAQ() {
       <div className='wrap'>
         <div className='cover'>
           {FaqLists.map((item) => (
-            <FaqList item={item} key={item.id}/>
+            <FaqList item={item} key={item.id} />
           ))}
         </div>
       </div>

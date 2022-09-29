@@ -1,66 +1,66 @@
-.transaction{
-    width: 100%;
-    height: 100vh;
-    padding: 20px 30px;
-    font-family: 'Lato', sans-serif;
+.transaction {
+  width: 100%;
+  min-height: 100vh;
+  padding: 20px 30px;
+  font-family: 'Lato', sans-serif;
 }
-.transaction .overlay{
-    padding: 20px;
-    background: white;
-    height: 100%;
+.transaction .overlay {
+  padding: 20px;
+  background: #cca354;
+  height: 100%;
 }
-.transaction .first{
-    display: flex;
-    justify-content: space-between;
-    color: #155d33;
-    margin-bottom: 20px;
+.transaction .first {
+  display: flex;
+  justify-content: space-between;
+  color: #155d33;
+  margin-bottom: 20px;
 }
-.transaction .first .a-tag{
-    text-decoration: none;
-    font-size: 13px;
-    color: #219451;
-    padding-top: 10px;
+.transaction .first .a-tag {
+  text-decoration: none;
+  font-size: 13px;
+  color: #219451;
+  padding-top: 10px;
 }
-.transaction .overflow{
-    overflow-x:auto;
+.transaction .overflow {
+  overflow-x: auto;
 }
-.transaction .table{
-    width: 100%;
-    border-collapse: collapse;
-    border-spacing: 0;
+.transaction .table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
-.transaction .tr{
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: 30px;
+.transaction .tr {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 30px;
 }
-.transaction .tr .td,.transaction tr .th{
-    width: 13.5%;
-    text-align: left;
-    padding: 8px;
-    margin-right: 20px;
+.transaction .tr .td,
+.transaction tr .th {
+  width: 13.5%;
+  text-align: left;
+  padding: 8px;
+  margin-right: 20px;
 }
-.transaction tr .th{
-    color: #219451;
+.transaction tr .th {
+  color: #219451;
 }
-.transaction .tr .td1,.transaction tr .th1{
-    width: 22.5%;
-    text-align: left;
-    padding: 8px;
-    margin-right: 20px;
+.transaction .tr .td1,
+.transaction tr .th1 {
+  width: 22.5%;
+  text-align: left;
+  padding: 8px;
+  margin-right: 20px;
 }
-.transaction tr .th1{
-    color: #219451;
+.transaction tr .th1 {
+  color: #219451;
 }
 
-@media screen and (max-width:450px){
-    .transaction {
-        padding: 20px 10px;
-    }
-    .transaction .overlay {
-        padding: 20px 10px;
-        height: auto;
-    }
-    
-    
+@media screen and (max-width: 450px) {
+  .transaction {
+    padding: 20px 10px;
+  }
+  .transaction .overlay {
+    padding: 20px 10px;
+    height: auto;
+  }
 }

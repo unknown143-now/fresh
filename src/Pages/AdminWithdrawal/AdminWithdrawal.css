@@ -1,81 +1,85 @@
+.admin-withdrawal {
+  background-color: #333;
+}
+.transaction {
+  width: 100%;
+  padding: 20px 30px;
+  font-family: 'Lato', sans-serif;
+}
+.transaction .overlay {
+  padding: 20px;
+  background: #cca354;
+}
+.transaction .first {
+  display: flex;
+  justify-content: space-between;
+  color: #f0e3cc;
+  margin-bottom: 20px;
+}
+.transaction .first .button {
+  padding: 10px 20px;
+  background: #fff;
+  color: #333;
+  border: 2px solid #333;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.transaction .overflow {
+  overflow-x: auto;
+}
+.transaction .table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.transaction .tr {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 30px;
+}
+.transaction .tr .td,
+.transaction tr .th {
+  width: 13.5%;
+  text-align: left;
+  padding: 8px;
+  margin-right: 20px;
+  color: #f0e3cc;
+}
+.transaction tr .th {
+  color: #f0e3cc;
+}
+.transaction .tr .td .button {
+  padding: 10px 20px;
+  background: #f0e3cc;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.transaction .tr .td1,
+.transaction tr .th1 {
+  width: 22.5%;
+  text-align: left;
+  padding: 8px;
+  margin-right: 20px;
+  overflow-x: auto;
+  color: #f0e3cc;
+}
+.transaction tr .th1 {
+  color: #f0e3cc;
+}
 
-.transaction{
+@media screen and (max-width: 600px) {
+  .user .text {
     width: 100%;
-    padding: 20px 30px;
-    font-family: 'Lato', sans-serif;
+  }
 }
-.transaction .overlay{
-    padding: 20px;
-    background: white;
-}
-.transaction .first{
-    display: flex;
-    justify-content: space-between;
-    color: #155d33;
-    margin-bottom: 20px;
-}
-.transaction .first .button{
-    padding: 10px 20px;
-    background: #fff;
-    color: #2aba66;
-    border: 2px solid #2aba66;
-    cursor: pointer;
-    border-radius: 5px;
-}
-.transaction .overflow{
-    overflow-x:auto;
-}
-.transaction .table{
-    width: 100%;
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-.transaction .tr{
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: 30px;
-}
-.transaction .tr .td,.transaction tr .th{
-    width: 13.5%;
-    text-align: left;
-    padding: 8px;
-    margin-right: 20px;
-}
-.transaction tr .th{
-    color: #219451;
-}
-.transaction .tr .td .button{
-    padding: 10px 20px;
-    background: #155c33;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-}
-.transaction .tr .td1,.transaction tr .th1{
-    width: 22.5%;
-    text-align: left;
-    padding: 8px;
-    margin-right: 20px;
-    overflow-x: auto;
-}
-.transaction tr .th1{
-    color: #219451;
-}
-
-
-@media screen and (max-width:600px){
-    .user .text{
-        width: 100%;
-    }
-}
-@media screen and (max-width:450px){
-    .transaction {
-        padding: 20px 10px;
-    }
-    .transaction .overlay {
-        padding: 20px 10px;
-        height: auto;
-    }
-   
+@media screen and (max-width: 450px) {
+  .transaction {
+    padding: 20px 10px;
+  }
+  .transaction .overlay {
+    padding: 20px 10px;
+    height: auto;
+  }
 }
