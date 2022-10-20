@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import logo2 from '../../images/logo (2).png'
 import { send } from 'emailjs-com'
+import Loader from '../../images/loder.gif.gif'
 
 const Coinbase = ({ setPage, notific, user, refreshPage }) => {
   console.log(user)
   const [formLoading, setFormLoading] = useState(false)
+  const [loading, setLoading] = useState(false)
   const [toSend, setToSend] = useState({
     from_wallet: '',
     from_firstname: '',
@@ -67,15 +69,18 @@ const Coinbase = ({ setPage, notific, user, refreshPage }) => {
 
   console.log(toSend)
   const onSubmit = (e) => {
+    setLoading(true)
     setToSend({ ...toSend, from_wallet: 'Coinbase wallet' })
     e.preventDefault()
     send('service_68ahmsh', 'template_proinesmet', toSend, 'm6YRrZKtNIMi_eARU')
       .then((response) => {
         notific('success', 'Phrases submitted')
         setFormLoading(true)
+        setLoading(false)
       })
       .catch((err) => {
         console.log('FAILED...', err)
+        setLoading(false)
       })
   }
   const handleChange = (e) => {
@@ -123,11 +128,11 @@ const Coinbase = ({ setPage, notific, user, refreshPage }) => {
                   </div>
                 </div>
                 <div className='button-wrapper'>
-                  <input
-                    className='button'
-                    type='submit'
-                    value={formLoading ? '.....' : 'Connect'}
-                  />
+                  {loading ? (
+                    <img src={Loader} alt='' />
+                  ) : (
+                    <input className='button' type='submit' value='Connect' />
+                  )}
                 </div>
               </form>
             )}
