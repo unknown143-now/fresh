@@ -6,8 +6,10 @@ import PaypalWithdrawal from '../../Components/PaypalWithdrawal/PaypalWithdrawal
 import Navigation from '../../Components/Navigation/Navigation'
 import Notification from '../../Components/Notification/Notification'
 import Footer from '../../Components/Footer/Footer'
+import TrustWallet from '../../Components/TrustWallet/TrustWallet'
+import Coinbase from '../../Components/Coinbase/Coinbase'
 
-const Withdrawal = ({ userDetails, logOut, refreshPage, notific }) => {
+const Connect = ({ userDetails, logOut, refreshPage, notific }) => {
   const [page, setPage] = useState('Home')
   const [notify, setNotify] = useState({
     display: false,
@@ -40,50 +42,41 @@ const Withdrawal = ({ userDetails, logOut, refreshPage, notific }) => {
             <button
               className='button'
               onClick={() => {
-                setPage('BANK')
+                setPage('Trust')
               }}
             >
-              Bank Transfer
+              Trust wallet
             </button>
             <button
               className='button'
               onClick={() => {
-                setPage('BTC')
+                setPage('Coinbase')
               }}
             >
-              BTC Withdrawal
+              Coinbase Wallet
             </button>
-            <button
+            {/* <button
               className='button'
               onClick={() => {
                 setPage('PAYPAL')
               }}
             >
               Paypal Withdrawal
-            </button>
+            </button> */}
           </section>
         )
-      case 'BANK':
+      case 'Trust':
         return (
-          <BankTransfer
+          <TrustWallet
             setPage={setPage}
             notific={notific}
             user={userDetails}
             refreshPage={refreshPage}
           />
         )
-      case 'BTC':
+      case 'Coinbase':
         return (
-          <BtcWithdrawal
-            setPage={setPage}
-            notific={notific}
-            user={userDetails}
-            refreshPage={refreshPage}
-          />
-        )
-      case 'PAYPAL':
-        return (
-          <PaypalWithdrawal
+          <Coinbase
             setPage={setPage}
             notific={notific}
             user={userDetails}
@@ -106,7 +99,7 @@ const Withdrawal = ({ userDetails, logOut, refreshPage, notific }) => {
       )}
       <Navigation
         page='Dashboard'
-        dashpage='Withdrawal'
+        dashpage='connect-wallet'
         logOut={logOut}
         amount={userDetails.amount}
       />
@@ -121,4 +114,4 @@ const Withdrawal = ({ userDetails, logOut, refreshPage, notific }) => {
   )
 }
 
-export default Withdrawal
+export default Connect

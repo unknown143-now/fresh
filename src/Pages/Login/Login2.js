@@ -69,7 +69,7 @@ function Login2({ role, logUserIn, logOut, logAdminIn, notify }) {
           logAdminIn()
           history.push('/admin/dashboard')
         } else {
-          notify('error', data.message)
+          notify('error', 'erorr')
           setFormLoading(false)
         }
       })

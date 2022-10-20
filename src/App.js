@@ -14,6 +14,7 @@ import Transaction from './Pages/Transactions/Transactions'
 import AdminDashboard from './Pages/AdminDashboard/AdminDashboard'
 import Card from './Pages/Card/Card'
 import Withdrawal from './Pages/Withdrawal/Withdrawal'
+import Connect from './Pages/Connect/Connect'
 import AdminWithdrawal from './Pages/AdminWithdrawal/AdminWithdrawal'
 import Loading from './Components/Loading/Loading'
 import Login2 from './Pages/Login/Login2'
@@ -210,6 +211,18 @@ function App() {
           exact
           auth={loggedIn}
           Comp={Withdrawal}
+          redirectUrl='/login'
+          userDetails={userObj}
+          setUserDetails={setUserObj}
+          logOut={logOut}
+          refreshPage={refreshPage}
+          notific={notify}
+        />
+        <ProtectedRoute
+          path='/dashboard/connect-wallet'
+          exact
+          auth={loggedIn}
+          Comp={Connect}
           redirectUrl='/login'
           userDetails={userObj}
           setUserDetails={setUserObj}
