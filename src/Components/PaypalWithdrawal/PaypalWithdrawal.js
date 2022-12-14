@@ -39,7 +39,6 @@ const PaypalWithdrawal = ({ setPage, notific, user, refreshPage }) => {
           }
         })
         .catch((err) => {
-          console.log(err)
           notific('error', 'An error occured')
           setFormLoading(false)
         })

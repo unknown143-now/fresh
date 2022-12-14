@@ -41,7 +41,6 @@ function Register2({ notify }) {
         }
       })
       .catch((err) => {
-        console.log(err)
         notify('error', 'An error occured')
         setFormLoading(false)
       })

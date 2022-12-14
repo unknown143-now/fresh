@@ -46,7 +46,6 @@ const UserDetails = ({ selectedUser, notific, setPage }) => {
         }
       })
       .catch((err) => {
-        console.log(err)
         notific('error', 'An error occured')
         setLoading(false)
       })
@@ -76,7 +75,6 @@ const UserDetails = ({ selectedUser, notific, setPage }) => {
           }
         })
         .catch((err) => {
-          console.log(err)
           notific('error', 'An error occured')
           setLoading(false)
         })
@@ -105,7 +103,6 @@ const UserDetails = ({ selectedUser, notific, setPage }) => {
         }
       })
       .catch((err) => {
-        console.log(err)
         notific('error', 'An error occured')
         setLoading(false)
       })
@@ -137,7 +134,6 @@ const UserDetails = ({ selectedUser, notific, setPage }) => {
           }
         })
         .catch((err) => {
-          console.log(err)
           notific('error', 'An error occured')
           setLoading(false)
         })
@@ -161,7 +157,6 @@ const UserDetails = ({ selectedUser, notific, setPage }) => {
         }
       })
       .catch((err) => {
-        console.log(err)
         notific('error', 'An error occured')
         setLoading(false)
       })
@@ -244,7 +239,6 @@ const UserDetails = ({ selectedUser, notific, setPage }) => {
         }
       })
       .catch((err) => {
-        console.log(err)
       })
     // eslint-disable-next-line
   }, [loading])

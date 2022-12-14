@@ -94,12 +94,10 @@ function App() {
             setLoading(false)
           } else {
             logOut()
-            console.log('not found')
             setLoading(false)
           }
         })
         .catch((err) => {
-          console.log(err)
           setLoading(false)
         })
     }

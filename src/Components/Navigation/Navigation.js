@@ -14,7 +14,6 @@ const Navigation = ({
   amount,
 }) => {
   const [navOpen, setNavOpen] = useState(false)
-  console.log(amount)
   const history = useHistory()
 
   const openNav = () => {

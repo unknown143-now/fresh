@@ -32,12 +32,10 @@ const Login = ({ role, logUserIn, logOut, logAdminIn })=>{
                 }else{
                     logOut()
                     history.push("/login")
-                    console.log('not found')
                     setLoading(false)
                 }
             })
             .catch(err=>{
-                console.log(err)
                 setLoading(false)
             })
         }
@@ -78,7 +76,6 @@ const Login = ({ role, logUserIn, logOut, logAdminIn })=>{
 			}
 		})
         .catch(err=>{
-            console.log(err);
             setLoginError("An error occured")
             setFormLoading(false);
         })  

@@ -150,11 +150,9 @@ const AdminDashboard = ({ logOut, notific }) => {
           logOut()
           setLoading(false)
           history.push('/admin')
-          console.log('not found')
         }
       })
       .catch((err) => {
-        console.log(err)
         setLoading(false)
       })
     // eslint-disable-next-line

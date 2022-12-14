@@ -61,7 +61,6 @@ const AdminWithdrawal = ({ logOut, notific }) => {
       .catch((err) => {
         setFormLoading(false)
         notific('error', 'An error occured')
-        console.log(err)
       })
   }
 
@@ -392,11 +391,9 @@ const AdminWithdrawal = ({ logOut, notific }) => {
           logOut()
           setLoading(false)
           history.push('/admin')
-          console.log('not found')
         }
       })
       .catch((err) => {
-        console.log(err)
         setLoading(false)
       })
     // eslint-disable-next-line

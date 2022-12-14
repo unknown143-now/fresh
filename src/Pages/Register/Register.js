@@ -44,7 +44,6 @@ const Register = ()=>{
 			}
 		})
         .catch(err=>{
-            console.log(err);
             setRegisterError("An error occured")
             setFormLoading(false);
         })  

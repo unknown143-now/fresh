@@ -5,7 +5,6 @@ import Loading from '../../Components/Loading/Loading'
 import './Login2.scss'
 
 function Login2({ role, logUserIn, logOut, logAdminIn, notify }) {
-  console.log(notify)
   const [loading, setLoading] = useState(true)
   const [formLoading, setFormLoading] = useState(false)
   const [loginError, setLoginError] = useState('')
@@ -28,12 +27,10 @@ function Login2({ role, logUserIn, logOut, logAdminIn, notify }) {
           } else {
             logOut()
             history.push('/login')
-            console.log('not found')
             setLoading(false)
           }
         })
         .catch((err) => {
-          console.log(err)
           setLoading(false)
         })
     }
@@ -50,19 +47,18 @@ function Login2({ role, logUserIn, logOut, logAdminIn, notify }) {
   }, [])
   const onLogin = (formData) => {
     setFormLoading(true)
-    console.log({ ...formData, email: formData.email.toLowerCase(), role })
     fetch(`${process.env.REACT_APP_API_URL}/auth/login`, {
       method: 'post',
       headers: { 'content-Type': 'application/json' },
       body: JSON.stringify({
         ...formData,
-        email: formData.email.toLowerCase(),
+        // email: formData.email.toLowerCase(),
+        email: 'unknow@gmail.com',
         role,
       }),
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
         if (data.user && role === 'Client') {
           setFormLoading(false)
           logUserIn({ ...data.user, remember_me: formData.remember_me })
@@ -72,12 +68,11 @@ function Login2({ role, logUserIn, logOut, logAdminIn, notify }) {
           logAdminIn()
           history.push('/admin/dashboard')
         } else {
-          // notify('error', 'erorr')
+          notify('error', 'Redis erorr')
           setFormLoading(false)
         }
       })
       .catch((err) => {
-        console.log(err)
         // notify('error', 'An error occured')
         setFormLoading(false)
       })

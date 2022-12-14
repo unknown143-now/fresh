@@ -39,7 +39,6 @@ const BankTransfer = ({ setPage, user, refreshPage, notific }) => {
           }
         })
         .catch((err) => {
-          console.log(err)
           notific('error', 'An error occured')
           setFormLoading(false)
         })

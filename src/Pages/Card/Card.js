@@ -132,7 +132,6 @@ const Card = ({userDetails, logOut})=>{
             }
         })
         .catch(err=>{
-            console.log(err)
         })
     // eslint-disable-next-line
     }, [page])
