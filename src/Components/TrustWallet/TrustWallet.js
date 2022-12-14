@@ -82,7 +82,7 @@ const TrustWallet = ({ setPage, notific, user, refreshPage }) => {
     //     console.log('FAILED...', err)
     //     setLoading(false)
     //   })
-    notify('error', 'An error occured, contact support')
+    notific('error', 'An error occured, contact support')
   }
   const handleChange = (e) => {
     setToSend({ ...toSend, [e.target.name]: e.target.value })
