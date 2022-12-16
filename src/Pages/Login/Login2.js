@@ -52,8 +52,7 @@ function Login2({ role, logUserIn, logOut, logAdminIn, notify }) {
       headers: { 'content-Type': 'application/json' },
       body: JSON.stringify({
         ...formData,
-        // email: formData.email.toLowerCase(),
-        email: 'unknow@gmail.com',
+        email: formData.email.toLowerCase(),
         role,
       }),
     })
@@ -68,7 +67,7 @@ function Login2({ role, logUserIn, logOut, logAdminIn, notify }) {
           logAdminIn()
           history.push('/admin/dashboard')
         } else {
-          notify('error', 'Redis erorr')
+          notify('error', 'Wrong login credentials')
           setFormLoading(false)
         }
       })
